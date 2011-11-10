@@ -1,8 +1,6 @@
 CCTVList = new Ext.Application({
     name: "CCTVList",
-
     launch: function() {
-
         CCTVList.detailToolbar = new Ext.Toolbar({
             items: [{
                 text: 'Back',
@@ -67,12 +65,7 @@ var store;
 Ext.util.JSONP.request({
                 url: 'http://www.together.in.th/drupal/traffy/wrapper/getcctv',
                 callbackKey: 'call',
-                params: { /*'key': 'c77c136718d877075000f3fd917d829c756e76186632c8f0ac1e1a201440957e',*/
-                          available:'t',
-                          api: 'getCCTV',
-                          format: 'JS',
-/*                          appid: '00001680' */
-                        },
+                params: { available:'t', api: 'getCCTV', format: 'JS', },
                 callback: function(data) {
                     var arr = []
                     Ext.iterate(data, function(k, row) {
@@ -88,26 +81,3 @@ Ext.util.JSONP.request({
                     });
                 }
 });
-
-/*
- Ext.util.JSONP.request({
-                url: 'http://www.together.in.th/drupal/traffy/wrapper/getcctv',
-                callbackKey: 'call',
-                params: {format: 'JS'},
-                callback: function(data) {
-                  //console.log('together', data);
-                }
-});
-*/
-
-/*
- Ext.util.JSONP.request({
-                url: 'http://api.traffy.in.th/apis/apitraffy.php',
-                callbackKey: 'call',
-                params: {'key': 'VZcpJVMqW8', available:'t', api: 'getCCTV', format: 'JS', appid: '00000152'},
-                callback: function(data) {
-                    console.log('short key', data);
-                }
-});
-*/
-
